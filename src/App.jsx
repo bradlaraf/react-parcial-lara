@@ -1,19 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import MainHeader from "./common/MainHeader";
+import MainFooter from "./common/MainFooter";
+import Inicio from "./pages/Inicio";
+import WhyUs from "./pages/WhyUs";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Ideas Digitales</h1>
-      <h2>Sistema web isil</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consequatur laudantium incidunt optio libero dignissimos, velit recusandae beatae reprehenderit similique est sequi illo nesciunt quia fugiat sunt, nobis saepe eveniet!
-      Dignissimos ipsum odio nihil dolorem quos, animi facilis iste cum nesciunt unde! Alias voluptate placeat quos repellat accusamus! Inventore ipsa tenetur praesentium, dignissimos alias voluptatem esse quia? Dicta, ipsum architecto.</p>
+      <BrowserRouter>
+        <MainHeader />
+        
+        <Routes>
+          <Route path="/" element={<Inicio/>}/>
+          <Route path="/WhyUs" element={<WhyUs/>}/>
+          <Route path="/AboutUs" element={<AboutUs/>}/>
+        </Routes>
+
+        <MainFooter />
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
